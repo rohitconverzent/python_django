@@ -18,11 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
-from mydjangoproject import settings
-from django.contrib.auth.urls import views as auth_views
+from django.shortcuts import redirect
 
 urlpatterns = [
+    path('', lambda request: redirect('/tweet/')),  # homepage redirect
     path('admin/', admin.site.urls),
     path('tweet/', include('tweet.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
